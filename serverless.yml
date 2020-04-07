@@ -1,0 +1,31 @@
+# Welcome to serverless. Read the docs
+# https://serverless.com/framework/docs/
+
+# Serverless.yml is the configuration the CLI
+# uses to deploy your code to your provider of choice
+
+# The `service` block is the name of the service
+service: serverless-test
+
+# The `provider` block defines where your service will be deployed
+provider:
+  name: aws
+  runtime: nodejs12.x
+  profile: serverless
+  tracing:
+    lambda: true
+    apiGateway: true
+# The `functions` block defines what code to deploy
+functions:
+  helloWorld:
+    handler: handler.helloWorld
+    # The `events` block defines how to trigger the handler.helloWorld code
+    events:
+      - http:
+          path: hello-world
+          method: get
+          cors: true
+    layers:
+      - arn:aws:lambda:us-east-1:464622532012:layer:Datadog-Node12-x:21
+    environmentVariables:
+      DATADOG_API_KEY: <REDACTED_KEY> 
