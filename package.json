@@ -1,5 +1,5 @@
 {
-  "name": "serverless-test",
+  "name": "my-new-service",
   "version": "1.0.0",
   "description": "",
   "main": "handler.js",
@@ -9,7 +9,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "datadog-lambda-js": "^2.21.0",
     "dd-trace": "^0.20.0-beta.1"
+  },
+  "devDependencies": {
+    "serverless-plugin-datadog": "^0.21.0"
   }
 }
